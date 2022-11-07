@@ -1,11 +1,18 @@
 import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { useFonts } from "expo-font";
 
 const App = () => {
+  const [fonteCarregada] = useFonts({
+    // instalar no terminal (npm install expo-font)
+    monoton: require("./assets/fonts/Monoton-Regular.ttf"),
+  });
+
+  if (!fonteCarregada) return <Text>Fonte sendo carregada...</Text>;
+
   return (
     <SafeAreaView style={estilos.container}>
       <View style={estilos.viewLogo}>
-        <Text>Da hora filmes</Text>
+        <Text style={estilos.tituloApp}>Da hora filmes</Text>
       </View>
 
       <View style={estilos.viewBotoes}>
@@ -25,7 +32,7 @@ export default App;
 
 const estilos = StyleSheet.create({
   container: {
-    backgroundColor: "yellow",
+    backgroundColor: "white",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -33,25 +40,28 @@ const estilos = StyleSheet.create({
   viewLogo: {
     flex: 3,
     width: "80%",
-    backgroundColor: "green",
     textAlign: "center",
     justifyContent: "flex-end",
     alignItems: "center",
   },
+  tituloApp: {
+    fontSize: 36,
+    fontFamily: "monoton",
+    color: "#5451a6",
+    //fontWeight: "bold",
+  },
   viewBotoes: {
-    flex: 2,
+    flex: 2, // Espaço ocupado do
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "flex-start",
-    backgroundColor: "orange",
     width: "80%",
   },
   viewRodape: {
     flex: 0.5,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "row", //deixa lado a lado
+    justifyContent: "space-between", // dá espaço entre o conteúdo
     alignItems: "align-itens",
-    backgroundColor: "red",
     width: "80%",
   },
 });

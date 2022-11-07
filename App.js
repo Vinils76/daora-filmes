@@ -13,7 +13,7 @@ const App = () => {
         <Button title="Favoritos" />
       </View>
 
-      <View style={estilos.rodape}>
+      <View style={estilos.viewRodape}>
         <Button title="Privacidade" />
         <Button title="Sobre" />
       </View>

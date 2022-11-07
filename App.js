@@ -30,7 +30,7 @@ const App = () => {
       <View style={estilos.viewBotoes}>
         <Pressable style={estilos.botaoInicial}>
           <Text style={estilos.textoBotao}>
-            <Ionicons name="beer-outline" size={16} color="gold" /> Buscar
+            <Ionicons name="film-outline" size={16} color="white" /> Buscar
             Filmes
           </Text>
         </Pressable>

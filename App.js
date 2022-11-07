@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useFonts } from "expo-font";
 import logo from "./assets//images/logo.png";
+import { Ionicons } from "@expo/vector-icons";
 
 const corPrimaria = "#5451a6";
 
@@ -28,21 +29,30 @@ const App = () => {
 
       <View style={estilos.viewBotoes}>
         <Pressable style={estilos.botaoInicial}>
-          <Text style={estilos.textoBotao}>Buscar Filmes</Text>
+          <Text style={estilos.textoBotao}>
+            <Ionicons name="beer-outline" size={16} color="gold" /> Buscar
+            Filmes
+          </Text>
         </Pressable>
 
         <Pressable style={estilos.botaoInicial}>
-          <Text style={estilos.textoBotao}>Buscar Filmes</Text>
+          <Text style={estilos.textoBotao}>
+            <Ionicons name="star" size={16} color="gold" /> Favoritos
+          </Text>
         </Pressable>
       </View>
 
       <View style={estilos.viewRodape}>
         <Pressable>
-          <Text style={estilos.textoBotao}>Privacidade</Text>
+          <Text style={estilos.textoBotao}>
+            <Ionicons name="lock-closed" size={16} color="white" /> Privacidade
+          </Text>
         </Pressable>
 
         <Pressable>
-          <Text style={estilos.textoBotao}>Sobre</Text>
+          <Text style={estilos.textoBotao}>
+            <Ionicons name="information-circle" size={16} color="white" /> Sobre
+          </Text>
         </Pressable>
       </View>
     </SafeAreaView>

@@ -1,6 +1,6 @@
 import {
-  Button,
   Image,
+  Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { useFonts } from "expo-font";
 import logo from "./assets//images/logo.png";
+
+const corPrimaria = "#5451a6";
 
 const App = () => {
   const [fonteCarregada] = useFonts({
@@ -25,13 +27,23 @@ const App = () => {
       </View>
 
       <View style={estilos.viewBotoes}>
-        <Button title="Buscar filmes" />
-        <Button title="Favoritos" />
+        <Pressable style={estilos.botaoInicial}>
+          <Text style={estilos.textoBotao}>Buscar Filmes</Text>
+        </Pressable>
+
+        <Pressable style={estilos.botaoInicial}>
+          <Text style={estilos.textoBotao}>Buscar Filmes</Text>
+        </Pressable>
       </View>
 
       <View style={estilos.viewRodape}>
-        <Button title="Privacidade" />
-        <Button title="Sobre" />
+        <Pressable>
+          <Text style={estilos.textoBotao}>Privacidade</Text>
+        </Pressable>
+
+        <Pressable>
+          <Text style={estilos.textoBotao}>Sobre</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -60,7 +72,7 @@ const estilos = StyleSheet.create({
   tituloApp: {
     fontSize: 36,
     fontFamily: "monoton",
-    color: "#5451a6",
+    color: corPrimaria,
     //fontWeight: "bold",
   },
   viewBotoes: {
@@ -70,11 +82,22 @@ const estilos = StyleSheet.create({
     alignItems: "flex-start",
     width: "80%",
   },
+  botaoInicial: {
+    borderStyle: "solid",
+    borderWidth: 2,
+    padding: 16,
+    backgroundColor: corPrimaria,
+  },
+  textoBotao: {
+    color: "white",
+  },
   viewRodape: {
     flex: 0.5,
+    backgroundColor: corPrimaria,
     flexDirection: "row", //deixa lado a lado
     justifyContent: "space-between", // dá espaço entre o conteúdo
-    alignItems: "align-itens",
-    width: "80%",
+    alignItems: "center",
+    width: "100%",
+    paddingHorizontal: 16,
   },
 });

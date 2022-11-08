@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <StatusBar />
-      <Sobre />
+      <Privacidade />
     </>
   );
 };

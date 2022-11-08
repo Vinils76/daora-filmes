@@ -10,7 +10,7 @@ import { useFonts } from "expo-font";
 import logo from "../../assets/images/logo.png";
 import { Ionicons } from "@expo/vector-icons";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [fonteCarregada] = useFonts({
     // instalar no terminal (npm install expo-font)
     monoton: require("../../assets/fonts/Monoton-Regular.ttf"),
@@ -25,14 +25,24 @@ const Home = () => {
       </View>
 
       <View style={estilos.viewBotoes}>
-        <Pressable style={estilos.botaoInicial}>
+        <Pressable
+          style={estilos.botaoInicial}
+          onPress={() => {
+            navigation.navigate("FormBusca");
+          }}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="film-outline" size={16} color="white" /> Buscar
             Filmes
           </Text>
         </Pressable>
 
-        <Pressable style={estilos.botaoInicial}>
+        <Pressable
+          style={estilos.botaoInicial}
+          onPress={() => {
+            navigation.navigate("Favoritos");
+          }}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="star" size={16} color="gold" /> Favoritos
           </Text>
@@ -40,13 +50,21 @@ const Home = () => {
       </View>
 
       <View style={estilos.viewRodape}>
-        <Pressable>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Privacidade");
+          }}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="lock-closed" size={16} color="white" /> Privacidade
           </Text>
         </Pressable>
 
-        <Pressable>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Sobre");
+          }}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="information-circle" size={16} color="white" /> Sobre
           </Text>

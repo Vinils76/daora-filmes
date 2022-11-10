@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import logoApi from "../../assets/images/logo-tmdb.png";
 
 const Sobre = () => {
   return (

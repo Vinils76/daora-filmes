@@ -1,16 +1,21 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import logoApi from "../../assets/images/logo-tmdb.png";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import logoAPI from "../../assets/images/logo-tmdb.png";
 
 const Sobre = () => {
   return (
     <SafeAreaView style={estilos.container}>
-      <Text style={estilos.titulo}>Sobre o app Da Hora Filmes</Text>
+      <Text style={estilos.titulo}>Sobre o app Dá Hora Filmes</Text>
       <Text style={estilos.texto}>
-        O <Text style={estilos.nomeApp}>Da Hora Filmes</Text> é um aplicativo
+        O <Text style={estilos.nomeApp}>Dá Hora Filmes</Text> é um aplicativo
         com a finalidade de permitir a busca por informações sobre filmes
         existentes na base de dados pública disponibilizada pelo site The Movie
         Database (TMDb).
       </Text>
+
+      <View style={estilos.viewTmdb}>
+        <Image source={logoAPI} />
+      </View>
+
       <Text style={estilos.texto}>
         Ao localizar um filme, o usuário pode visualizar informações como
         título, data de lançamento, nota média de avaliação e uma breve
@@ -21,7 +26,7 @@ const Sobre = () => {
         O aplicativo poderá receber novos recursos conforme o feedback e demanda
         dos usuários.
       </Text>
-      <Text style={estilos.texto}>DA HORA FILMES &copy; 2022</Text>
+      <Text style={estilos.texto}>Dá Hora Filmes &copy; 2022</Text>
     </SafeAreaView>
   );
 };
@@ -41,7 +46,9 @@ const estilos = StyleSheet.create({
   texto: {
     marginVertical: 8,
   },
-  nomeApp: {
-    color: "#5451a6",
+  nomeApp: { color: "#5451a6", fontWeight: "bold" },
+  viewTmdb: {
+    marginVertical: 8,
+    alignItems: "center",
   },
 });

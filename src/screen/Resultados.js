@@ -53,6 +53,7 @@ const Resultados = ({ route }) => {
       <View style={estilos.viewFilmes}>
         {!loading && (
           <FlatList
+            showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={ItemSeparador}
             ListEmptyComponent={ItemVazio}
             data={resultados}

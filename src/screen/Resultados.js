@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Image, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import api from "../services/api";
 import apiKey from "../../apiKey";
 import Loading from "../components/Loading";
+import CardFilme from "../components/CardFilme";
+import ItemSeparador from "../components/ItemSeparador";
+import ItemVazio from "../components/ItemVazio";
 
 const Resultados = ({ route }) => {
   const { filme } = route.params;
@@ -25,8 +35,6 @@ const Resultados = ({ route }) => {
 
         setResultados(resposta.data.results);
 
-        /* Simulando um tempo de carregamento lento
-        usando temporizador setInterval */
         setInterval(() => {
           setLoading(false);
         }, 3000);
@@ -40,28 +48,20 @@ const Resultados = ({ route }) => {
   return (
     <SafeAreaView style={estilos.container}>
       <Text>Você buscou por: {filme} </Text>
-
-      {/* Sintaxe de if evaluate usando &&
-Se loading for TRUE, renderize <Loading /> */}
       {loading && <Loading />}
 
       <View style={estilos.viewFilmes}>
-        {/* Se loading for false, renderize o resultado
-        do map */}
-        {!loading &&
-          resultados.map((resultado) => {
-            return (
-              <View key={resultado.id}>
-                <Image
-                  style={estilos.imagem}
-                  source={{
-                    uri: `https://image.tmdb.org/t/p/original/${resultado.poster_path}`,
-                  }}
-                />
-                <Text> {resultado.title} </Text>
-              </View>
-            );
-          })}
+        {!loading && (
+          <FlatList
+            ItemSeparatorComponent={ItemSeparador}
+            ListEmptyComponent={ItemVazio}
+            data={resultados}
+            renderItem={({ item }) => {
+              return <CardFilme filme={item} />;
+            }}
+            keyExtractor={(item) => item.id}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
@@ -76,8 +76,5 @@ const estilos = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-  },
-  imagem: {
-    height: 125,
   },
 });

@@ -8,6 +8,7 @@ import Home from "./src/screen/Home";
 import Privacidade from "./src/screen/Privacidade";
 import Sobre from "./src/screen/Sobre";
 import Resultados from "./src/screen/Resultados";
+import Detalhes from "./src/screen/Detalhes";
 
 const App = () => {
   /* Inicializando através de uma constante
@@ -49,8 +50,8 @@ const App = () => {
           <Stack.Screen component={Favoritos} name="Favoritos" />
           <Stack.Screen component={Privacidade} name="Privacidade" />
           <Stack.Screen component={Sobre} name="Sobre" />
-
           <Stack.Screen component={Resultados} name="Resultados" />
+          <Stack.Screen component={Detalhes} name="Detalhes" />
         </Stack.Navigator>
       </NavigationContainer>
     </>

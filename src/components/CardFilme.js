@@ -20,7 +20,6 @@ const CardFilme = ({ filme }) => {
     // Etapas para uso do asyncStorage
 
     const filmesFavoritos = await AsyncStorage.getItem("@favoritos");
-    console.log(filmesFavoritos);
 
     let listaDeFilmes = JSON.parse(filmesFavoritos);
 

@@ -1,10 +1,12 @@
+import { StyleSheet, Text, View, Image, Pressable, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import fotoAlternativa from "../../assets/images/foto-alternativa.jpg";
 
 const CardFilme = ({ filme }) => {
   const { title, poster_path } = filme;
 
+  /* Acessar recursos do React Navigation (sem props!) */
   const navigation = useNavigation();
 
   const leiaMais = () => {
@@ -12,13 +14,17 @@ const CardFilme = ({ filme }) => {
   };
 
   return (
-    <View>
+    <View style={estilos.card}>
       <Image
         style={estilos.imagem}
-        resizeMode="contain"
-        source={{
-          uri: `https://image.tmdb.org/t/p/original/${poster_path}`,
-        }}
+        resizeMode="cover"
+        source={
+          poster_path
+            ? {
+                uri: `https://image.tmdb.org/t/p/original/${poster_path}`,
+              }
+            : fotoAlternativa
+        }
       />
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
@@ -26,13 +32,13 @@ const CardFilme = ({ filme }) => {
         <View style={estilos.botoes}>
           <Pressable style={estilos.botao} onPress={leiaMais}>
             <Text style={estilos.textoBotao}>
-              <Ionicons name="book" size={16} color="#5451a6" /> Leia mais
+              <Ionicons name="book" size={12} /> Leia mais
             </Text>
           </Pressable>
 
           <Pressable style={estilos.botao}>
             <Text style={estilos.textoBotao}>
-              <Ionicons name="cloud" size={16} color="#5451a6" /> Salvar
+              <Ionicons name="add-circle" size={12} /> Salvar
             </Text>
           </Pressable>
         </View>
@@ -44,9 +50,21 @@ const CardFilme = ({ filme }) => {
 export default CardFilme;
 
 const estilos = StyleSheet.create({
-  imagem: {
-    height: 300,
+  card: {
+    marginVertical: 4,
+    flexDirection: "row",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#5451a6",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
+  imagem: {
+    flex: 1,
+    height: 150,
+    width: 100,
+  },
+  corpo: { flex: 2 },
   titulo: {
     backgroundColor: "#5451a6",
     color: "white",
